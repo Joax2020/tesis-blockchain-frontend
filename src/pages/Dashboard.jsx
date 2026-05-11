@@ -19,13 +19,20 @@ import DocumentTable      from '../components/Dashboard/DocumentTable';   // �
 import { isTokenValid } from '../utils/authUtils';
 
 // ─── Helpers de API ──────────────────────────────────────────────────────────
-const api = (url, opts = {}) =>{
+const api = (url, opts = {}) => {
   const token = localStorage.getItem('token');
-  return axios({ url: `${import.meta.env.VITE_API_URL}${url}`, withCredentials: true, ...opts, headers: {
-    'Authorization': `Bearer ${token}`,
-    ...opts
-  }});
+  const { headers: extraHeaders, ...restOpts } = opts;
+  return axios({
+    url: `${import.meta.env.VITE_API_URL}${url}`,
+    withCredentials: true,
+    ...restOpts,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      ...extraHeaders
+    }
+  });
 };
+
 // ─── Componente ──────────────────────────────────────────────────────────────
 const Dashboard = () => {
   const navigate = useNavigate();

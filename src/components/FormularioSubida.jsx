@@ -56,21 +56,11 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
     e.preventDefault();
     if (!formData.id || !archivoFisico) return;
 
-    const token = localStorage.getItem('token');
-
-    const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/documento`, 
-        datosAEnviar, 
-        {
-            headers: {
-                'Authorization': `Bearer ${token}` // 👈 agregar
-            }
-        }
-    );
-
     setIsProcessing(true);
     setPorcentaje(5);
     setProgresoMsj('⏳ Enviando documento al servidor...');
+
+    const token = localStorage.getItem('token');
 
     const datosAEnviar = new FormData();
     datosAEnviar.append('file', archivoFisico);
@@ -80,10 +70,15 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
     datosAEnviar.append('date', formData.date);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/documento`, datosAEnviar, {
-          withCredentials: true, // Asegura que las cookies se envíen
-      }); 
-      
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/documento`,
+        datosAEnviar,
+        {
+          withCredentials: true,
+          headers: { 'Authorization': `Bearer ${token}` }
+        }
+      );
+
       if (response.status === 202) {
           iniciarPolling(formData.id);
       } else {
@@ -91,16 +86,16 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
           setProgresoMsj('');
           setPorcentaje(100);
           setMensajeRegistro(`✅ Documento procesado.`);
-          toast.success('Documento guardado exitosamente'); // 👈 Toast de éxito
+          toast.success('Documento guardado exitosamente');
           setTimeout(() => limpiarFormulario(), 2000);
           if (onUploadSuccess) onUploadSuccess(usuario.email);
       }
     } catch (error) {
       setIsProcessing(false);
       setMensajeRegistro('');
-      toast.error('Error al subir. Verifica tu sesión.'); // 👈 Toast de error
+      toast.error('Error al subir. Verifica tu sesión.');
     }
-  };
+};
 
   const iniciarPolling = (docId) => {
       intervaloRef.current = setInterval(async () => {
