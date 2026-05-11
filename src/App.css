@@ -1,0 +1,316 @@
+/* ========================================= */
+/* VARIABLES DE TEMA (OSCURO POR DEFECTO)    */
+/* ========================================= */
+:root {
+  --bg-base: #121212;
+  --bg-panel: #1e1e24;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  --border-line: #333333;
+  --accent: #646cff;
+  --input-bg: #2a2a35;
+  --success-bg: #1a2e23; /* Verde oscuro para la caja de arrastrar */
+  --error-bg: #3b1e1e;   /* Rojo oscuro para errores */
+}
+
+/* ========================================= */
+/* VARIABLES DE TEMA (CLARO)                 */
+/* ========================================= */
+[data-theme="light"] {
+  --bg-base: #f0f2f5;
+  --bg-panel: #ffffff;
+  --text-main: #2c3e50;
+  --text-muted: #666666;
+  --border-line: #dddddd;
+  --accent: #0984e3;
+  --input-bg: #f8f9fa;
+  --success-bg: #e8f5e9; /* Verde muy clarito para modo día */
+  --error-bg: #ffebee;   /* Rojo muy clarito para modo día */
+}
+
+/* ========================================= */
+/* ESTILOS GLOBALES                          */
+/* ========================================= */
+body, #root {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Las tarjetas ahora obedecerán al tema correctamente */
+.card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-line);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Botones universales */
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover:not(:disabled) { opacity: 0.8; }
+.btn-primary:disabled { background-color: var(--text-muted); cursor: not-allowed; }
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-line);
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-secondary:hover { background-color: var(--input-bg); }
+
+/* Inputs y Formularios */
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: var(--text-main); }
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-line);
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* utility classes for refactored layout */
+.full-width-select, .full-width-input { width: 100%; }
+.upload-box { padding: 15px; border: 2px dashed var(--border-line); text-align: center; border-radius: 8px; margin-bottom: 15px; }
+.upload-box.success-bg { background-color: var(--success-bg); border-color: #2ecc71; }
+.status-msg { font-size: 0.9rem; }
+.status-msg.yellow { color: #f1c40f; }
+.hash-input { background-color: var(--input-bg); color: #2ecc71; font-family: monospace; font-size: 0.8rem; }
+.helper-text { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+.small-print { text-align: center; margin-bottom: 10px; font-size: 0.75rem; color: #666; font-family: monospace; }
+.alert { padding: 10px; border-radius: 8px; margin-top: 10px; }
+.alert.error-bg { background-color: var(--error-bg); border-left: 4px solid #e74c3c; }
+.alert.success-panel { background-color: #1e293b; border-left: 4px solid #2ecc71; }
+.alert-text { margin: 0; font-size: 0.9rem; text-align: center; font-weight: bold; color: #e74c3c; }
+.success-title { margin: 0 0 10px 0; color: #2ecc71; display: flex; align-items: center; gap: 5px; }
+.bold { font-weight: bold; }
+.tag { background-color: var(--input-bg); color: var(--text-main); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
+.monospace { font-family: monospace; font-size: 0.85rem; }
+.blue { color: #646cff; }
+.centered { text-align: center; }
+.small-btn { padding: 5px 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 5px; text-decoration: none; }
+.muted-text { color: var(--text-muted); font-size: 0.8rem; }
+.empty-state { text-align: center; color: var(--text-muted); }
+.history-table { width: 100%; border-collapse: collapse; text-align: left; }
+.history-table th, .history-table td { padding: 10px; }
+.history-table thead tr { border-bottom: 1px solid var(--border-line); color: var(--text-muted); }
+.history-table tbody tr { border-bottom: 1px solid var(--border-line); }
+
+/* ========================================= */
+/* ESTILOS PARA LOGIN Y REGISTRO             */
+/* ========================================= */
+
+/* Contenedor que centra la tarjeta en el medio de la pantalla */
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: var(--bg-base);
+}
+
+/* La tarjeta del formulario con un ancho máximo perfecto para reCAPTCHA */
+.auth-card {
+  width: 100%;
+  max-width: 420px; /* Suficiente espacio para que el reCAPTCHA respire */
+  padding: 40px 30px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-line);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.auth-title {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+/* Centrar el reCAPTCHA para que no se desborde por los lados */
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+/* Enlaces sutiles al final del formulario */
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ========================================== */
+/* ESTILOS DEL MODAL DE TRAZABILIDAD          */
+/* ========================================== */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999; padding: 20px;
+}
+
+.modal-container {
+  background-color: var(--bg-panel, #1e1e1e);
+  border-radius: 10px; width: 100%; max-width: 650px; max-height: 85vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  overflow: hidden; border: 1px solid var(--border-line, #333);
+}
+
+.modal-header {
+  padding: 15px 20px; border-bottom: 1px solid var(--border-line, #333);
+  display: flex; justify-content: space-between; align-items: center;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.modal-body {
+  padding: 25px; overflow-y: auto; flex-grow: 1;
+}
+
+.timeline-list {
+  list-style: none; padding: 0; margin: 0 0 0 10px;
+  border-left: 2px solid #646cff;
+}
+
+.timeline-item {
+  position: relative; padding-left: 25px;
+}
+
+.timeline-dot {
+  position: absolute; left: -33px; top: 0px;
+  background-color: var(--bg-panel); border: 3px solid #646cff;
+  width: 16px; height: 16px; border-radius: 50%;
+}
+
+.timeline-box {
+  background-color: rgba(0,0,0,0.2); padding: 12px;
+  border-radius: 6px; border: 1px solid var(--border-line, #333);
+  font-size: 0.85rem; margin-top: 10px;
+}
+
+.modal-footer {
+  padding: 15px 20px; border-top: 1px solid var(--border-line, #333);
+  text-align: right; background-color: rgba(0,0,0,0.2);
+}
+
+.skeleton-box { animation: pulse 1.5s infinite ease-in-out; } @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 0.3; } 100% { opacity: 0.6; } }
+
+/* ========================================= */
+/* DISEÑO RESPONSIVO (MÓVILES Y TABLETS)     */
+/* ========================================= */
+
+/* Clase utilitaria universal para scroll horizontal en móviles */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Scroll fluido en iOS */
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  /* 1. Márgenes más amigables para el pulgar */
+  .container {
+    padding: 10px;
+  }
+
+  /* 2. Forzamos la cuadrícula a 1 sola columna */
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* 3. Las cabeceras pasan de horizontales a verticales */
+  .header-mobile {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 15px;
+  }
+  .header-mobile button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 4. Barra de filtros inteligente apilada */
+  .filtros-mobile {
+    flex-direction: column !important;
+  }
+  .filtros-mobile > div {
+    flex: 1 1 100% !important;
+    width: 100%;
+  }
+
+  /* 5. El Chatbot toma toda la pantalla para que el teclado no lo tape */
+  .chatbot-panel-mobile {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100vh !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+  
+  /* Hacemos el botón flotante un poco más pequeño para que no estorbe */
+  .chatbot-boton-mobile {
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 15px !important;
+    left: 15px !important;
+  }
+
+  /* 6. El Pop-up del Visor PDF se adapta */
+  .modal-visor-mobile {
+    width: 95% !important;
+    height: 95vh !important;
+    padding: 10px !important;
+  }
+}
