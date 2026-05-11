@@ -43,6 +43,7 @@ const Login = () => {
 
       console.log("Login exitoso:", respuesta.data);
       localStorage.setItem('usuario', JSON.stringify(respuesta.data.user));
+      localStorage.setItem('token', respuesta.data.token);
       navigate('/dashboard');
 
     } catch (error) {
@@ -137,6 +138,7 @@ const Login = () => {
 
                         // Si el backend nos da luz verde, guardamos nuestro JWT
                         localStorage.setItem('usuario', JSON.stringify(respuesta.data.user));
+                        localStorage.setItem('token', respuesta.data.token); // 👈 Agregar esta línea
                         navigate('/dashboard');
                     } catch (error) {
                         setError('Error al ingresar con Google.');

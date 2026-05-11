@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { FileText, Sparkles, XCircle } from 'lucide-react'; 
