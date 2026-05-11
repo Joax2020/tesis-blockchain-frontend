@@ -56,6 +56,18 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
     e.preventDefault();
     if (!formData.id || !archivoFisico) return;
 
+    const token = localStorage.getItem('token');
+
+    const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/documento`, 
+        datosAEnviar, 
+        {
+            headers: {
+                'Authorization': `Bearer ${token}` // 👈 agregar
+            }
+        }
+    );
+
     setIsProcessing(true);
     setPorcentaje(5);
     setProgresoMsj('⏳ Enviando documento al servidor...');

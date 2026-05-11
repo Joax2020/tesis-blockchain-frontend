@@ -32,16 +32,16 @@ const Chatbot = () => {
     try {
       
       const response = await fetch(`${import.meta.env.VITE_API_URL}/chat`, {
-        method: 'POST',
-        credentials: 'include', // Asegura que las cookies se envíen
-        headers: { 
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 
-            pregunta: nuevoMensajeUsuario.texto,
-            historial: historialParaIA 
-        }),
-      });
+    method: 'POST',
+    headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}` // 👈 agregar
+    },
+    body: JSON.stringify({ 
+        pregunta: nuevoMensajeUsuario.texto,
+        historial: historialParaIA 
+    }),
+});
 
       const data = await response.json();
 

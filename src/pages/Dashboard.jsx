@@ -19,9 +19,13 @@ import DocumentTable      from '../components/Dashboard/DocumentTable';   // �
 import { isTokenValid } from '../utils/authUtils';
 
 // ─── Helpers de API ──────────────────────────────────────────────────────────
-const api = (url, opts = {}) =>
-  axios({ url: `${import.meta.env.VITE_API_URL}${url}`, withCredentials: true, ...opts });
-
+const api = (url, opts = {}) =>{
+  const token = localStorage.getItem('token');
+  return axios({ url: `${import.meta.env.VITE_API_URL}${url}`, withCredentials: true, ...opts, headers: {
+    'Authorization': `Bearer ${token}`,
+    ...opts
+  }});
+};
 // ─── Componente ──────────────────────────────────────────────────────────────
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -134,7 +138,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     await api('/auth/logout', { method: 'POST' });
     localStorage.removeItem('usuario');
-    localStorage.removeItem('token');
+    localStorage.removeItem('token'); // 👈 también limpia el token
     navigate('/login');
   };
 
