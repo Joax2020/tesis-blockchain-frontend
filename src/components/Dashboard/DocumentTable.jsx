@@ -37,20 +37,20 @@ const EstadoIA = ({ vectorizado, hash, onReintentar }) => {
   if (vectorizado) {
     return (
       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#2ecc71', fontSize: '0.75rem', fontWeight: '600' }}>
-        <Bot size={13} /> IA Activa
+        <Bot size={13} /> ✅ Consultable con IA
       </span>
     );
   }
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px' }}>
       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#f39c12', fontSize: '0.75rem', fontWeight: '600' }}>
-        <BotOff size={13} /> Sin IA
+        <BotOff size={13} /> ⚠️ No disponible para consultas
       </span>
       <button
         onClick={() => onReintentar(hash)}
         style={{ background: 'none', border: 'none', color: '#3498db', fontSize: '0.7rem', cursor: 'pointer', textDecoration: 'underline', display: 'flex', alignItems: 'center', gap: '3px' }}
       >
-        <RefreshCw size={11} /> Reintentar
+        <RefreshCw size={11} /> Activar IA para este documento
       </button>
     </div>
   );
@@ -194,7 +194,7 @@ const DocumentTable = ({ documentos, onVerDoc, onAbrirHistorial, onReintentar, o
       <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
         <thead>
           <tr style={{ backgroundColor: 'var(--input-bg)' }}>
-            {['Título', 'Categoría', 'Hash', 'Fecha', 'Acciones'].map((col, i) => (
+            {['Título', 'Categoría', 'ID de seguridad', 'Fecha', 'Acciones'].map((col, i) => (
               <th key={col} style={{
                 padding: '12px 10px', fontSize: '0.78rem', fontWeight: '700',
                 color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px',

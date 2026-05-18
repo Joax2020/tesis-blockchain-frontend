@@ -164,12 +164,12 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
     <div className="card">
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '15px' }}>
         <FileText color="#646cff" />
-        <h3 style={{ margin: 0 }}>Nuevo Documento Automático</h3>
+        <h3 style={{ margin: 0 }}>Subir Nuevo Documento</h3>
       </div>
 
       <div style={{ padding: '10px', backgroundColor: 'rgba(100, 108, 255, 0.1)', borderRadius: '8px', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
          <Sparkles size={18} color="#646cff"/>
-         <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-main)' }}>El título y la categoría serán deducidos por la IA.</p>
+         <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-main)' }}>La IA detectará el título y la categoría del documento por ti.</p>
       </div>
 
       <form onSubmit={registrarDocumento}>
@@ -177,7 +177,7 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
           <input type="file" id="fileInput" onChange={handleFileUpload} disabled={isProcessing} style={{ width: '100%' }} />
         </div>
 
-        {calculandoHash && <p style={{ color: '#f1c40f', fontSize: '0.9rem' }}>Generando Hash (SHA-256)...</p>}
+        {calculandoHash && <p style={{ color: '#f1c40f', fontSize: '0.9rem' }}>Preparando archivo...</p>}
 
         {isProcessing && (
           <div style={{ marginBottom: '15px' }}>
@@ -193,7 +193,7 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
 
         <div style={{ display: 'flex', gap: '10px' }}>
             <button type="submit" className="btn-primary" disabled={!formData.id || calculandoHash || isProcessing} style={{ flex: 1 }}>
-            {isProcessing ? 'Procesando...' : 'Subir y Auto-Clasificar'}
+            {isProcessing ? 'Procesando...' : 'Subir Documento'}
             </button>
             
             {isProcessing && (

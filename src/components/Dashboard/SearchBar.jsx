@@ -12,7 +12,7 @@ const SearchBar = ({
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', flexWrap: 'wrap', gap: '10px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Clock color="#f1c40f" />
-          <h3 style={{ margin: 0 }}>Mi Almacenamiento Criptográfico</h3>
+          <h3 style={{ margin: 0 }}>Mis Documentos</h3>
         </div>
 
         <div style={{ display: 'flex', backgroundColor: 'var(--input-bg)', borderRadius: '6px', padding: '4px' }}>

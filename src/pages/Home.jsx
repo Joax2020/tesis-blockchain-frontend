@@ -45,7 +45,7 @@ const Home = () => {
       }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 12px', backgroundColor: 'var(--input-bg)', borderRadius: '50px', border: '1px solid var(--border-line)', marginBottom: '20px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
           <span style={{ display: 'inline-block', width: '8px', height: '8px', backgroundColor: '#2ecc71', borderRadius: '50%', boxShadow: '0 0 8px #2ecc71' }}></span>
-          Red Blockchain Operativa
+          Sistema Activo
         </div>
 
         <h1 style={{ 
@@ -64,7 +64,7 @@ const Home = () => {
 
         <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '60px' }}>
           <button onClick={() => navigate('/registro')} className="btn-primary" style={{ padding: '15px 30px', fontSize: '1.1rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            Empezar a sellar <ArrowRight size={20} />
+            Comenzar ahora <ArrowRight size={20} />
           </button>
         </div>
 
@@ -106,19 +106,19 @@ const Home = () => {
         <div className="grid-container">
           <div className="card" style={{ border: '1px solid var(--border-line)', boxShadow: 'none' }}>
             <Lock size={32} color="#2ecc71" style={{ marginBottom: '15px' }} />
-            <h3 style={{ marginTop: 0 }}>Criptografía Avanzada</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>Cada documento se procesa localmente usando el algoritmo SHA-256. El sistema nunca almacena tu documento físico sin tu consentimiento, garantizando privacidad absoluta.</p>
+            <h3 style={{ marginTop: 0 }}>Protección</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>Cada documento se procesa localmente. El sistema nunca almacena tu documento físico sin tu consentimiento, garantizando privacidad absoluta.</p>
           </div>
 
           <div className="card" style={{ border: '1px solid var(--border-line)', boxShadow: 'none' }}>
             <Database size={32} color="var(--accent)" style={{ marginBottom: '15px' }} />
-            <h3 style={{ marginTop: 0 }}>Inmutabilidad Distribuida</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>Los identificadores se sellan en una red Hyperledger Fabric de consorcio. Una vez registrado un bloque, ni siquiera el administrador del sistema puede alterarlo o borrarlo.</p>
+            <h3 style={{ marginTop: 0 }}>Registros que nadie puede alterar</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>Los identificadores se sellan en una red privada certificada. Una vez registrado un bloque, ni siquiera el administrador del sistema puede alterarlo o borrarlo.</p>
           </div>
 
           <div className="card" style={{ border: '1px solid var(--border-line)', boxShadow: 'none' }}>
             <Activity size={32} color="#f1c40f" style={{ marginBottom: '15px' }} />
-            <h3 style={{ marginTop: 0 }}>Auditoría en Tiempo Real</h3>
+            <h3 style={{ marginTop: 0 }}>Verificación instantánea</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>Cualquier empleador o institución puede arrastrar tu documento al validador público y verificar matemáticamente si es el original emitido en milisegundos.</p>
           </div>
         </div>

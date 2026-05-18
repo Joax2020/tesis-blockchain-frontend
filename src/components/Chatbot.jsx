@@ -63,7 +63,7 @@ const Chatbot = () => {
   return (
     <>
       {!abierto && (
-        <button className="chatbot-boton-mobile" onClick={() => setAbierto(true)} style={styles.botonFlotante} title="Abrir Asistente">
+        <button className="chatbot-boton-mobile" onClick={() => setAbierto(true)} style={styles.botonFlotante} title="Preguntar sobre mis documentos">
           <span style={{ fontSize: '24px' }}>💬</span>
         </button>
       )}
@@ -72,7 +72,7 @@ const Chatbot = () => {
         <div className="chatbot-panel-mobile" style={styles.panelModal}>
           <div style={styles.cabeceraModal}>
             <h3 style={{ margin: 0, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              🧠 Asistente RAG
+              🧠 Asistente de Documentos
             </h3>
             <button onClick={() => setAbierto(false)} style={styles.botonCerrar}>❌</button>
           </div>
@@ -81,7 +81,7 @@ const Chatbot = () => {
             {mensajes.length === 0 && (
               <div style={styles.mensajeVacio}>
                 <p style={{ fontSize: '2rem', margin: '0 0 10px 0' }}>🤖</p>
-                <p>¡Hola! Soy tu asistente conectado a la Bóveda RAG.</p>
+                <p>¡Hola! Puedo responder preguntas sobre los documentos que subiste.</p>
                 <p style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>Hazme cualquier pregunta sobre los PDFs subidos.</p>
               </div>
             )}
@@ -102,7 +102,7 @@ const Chatbot = () => {
                     <details style={styles.detailsTag}>
                       <summary style={styles.summaryFuentes}>
                         <span style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
-                          📚 Ver {msg.fuentes.length} fragmentos consultados
+                          📚 Ver {msg.fuentes.length} extractos del documento usados
                         </span>
                       </summary>
                       <div style={styles.contenedorTarjetas}>
@@ -124,7 +124,7 @@ const Chatbot = () => {
             
             {cargando && (
               <div style={styles.burbujaIA}>
-                <p style={styles.cargando}>Analizando vectores espaciales...</p>
+                <p style={styles.cargando}>Buscando en tus documentos...</p>
               </div>
             )}
             <div ref={finDelChatRef} />

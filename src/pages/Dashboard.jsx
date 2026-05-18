@@ -191,7 +191,7 @@ const Dashboard = () => {
         <div className="card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '15px' }}>
             <Search color="#2ecc71" />
-            <h3 style={{ margin: 0 }}>Auditoría Inteligente</h3>
+            <h3 style={{ margin: 0 }}>Verificar Autenticidad</h3>
           </div>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
             Sube un documento para comprobar si es el original y no ha sido alterado.
@@ -213,10 +213,10 @@ const Dashboard = () => {
           {documentoBlockchain && (
             <div style={{ marginTop: '10px', padding: '15px', backgroundColor: '#1e293b', borderRadius: '8px', borderLeft: '4px solid #2ecc71' }}>
               <h4 style={{ margin: '0 0 10px 0', color: '#2ecc71', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <ShieldCheck size={20} /> ¡Documento Verídico!
+                <ShieldCheck size={20} /> ¡Documento Auténtico y Sin Alteraciones!
               </h4>
-              <p style={{ margin: '5px 0', fontSize: '0.85rem' }}><strong>Certificado a:</strong> {documentoBlockchain.OwnerID}</p>
-              <p style={{ margin: '5px 0', fontSize: '0.85rem' }}><strong>Sello:</strong> {documentoBlockchain.UploadDate}</p>
+              <p style={{ margin: '5px 0', fontSize: '0.85rem' }}><strong>Registrado por:</strong> {documentoBlockchain.OwnerID}</p>
+              <p style={{ margin: '5px 0', fontSize: '0.85rem' }}><strong>Fecha de registro:</strong> {documentoBlockchain.UploadDate}</p>
             </div>
           )}
         </div>
