@@ -59,7 +59,7 @@ const Home = () => {
         </h1>
         
         <p style={{ color: 'var(--text-muted)', maxWidth: '600px', marginBottom: '40px', fontSize: '1.15rem', lineHeight: '1.6' }}>
-          Plataforma inmutable que garantiza la autenticidad, integridad y trazabilidad de tus documentos importantes utilizando el poder de Hyperledger Fabric.
+          Plataforma inmutable que garantiza la autenticidad, integridad y trazabilidad de tus documentos importantes
         </p>
 
         <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '60px' }}>
