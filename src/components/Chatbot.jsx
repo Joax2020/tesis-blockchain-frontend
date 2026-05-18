@@ -30,18 +30,18 @@ const Chatbot = () => {
     setCargando(true);
 
     try {
-      
       const response = await fetch(`${import.meta.env.VITE_API_URL}/chat`, {
-    method: 'POST',
-    headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}` // 👈 agregar
-    },
-    body: JSON.stringify({ 
-        pregunta: nuevoMensajeUsuario.texto,
-        historial: historialParaIA 
-    }),
-});
+          method: 'POST',
+          headers: { 
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('token')}` // 👈 La llave maestra
+          },
+          credentials: 'include', // 👈 El respaldo seguro para las cookies
+          body: JSON.stringify({ 
+              pregunta: nuevoMensajeUsuario.texto,
+              historial: historialParaIA 
+          }),
+      });
 
       const data = await response.json();
 
