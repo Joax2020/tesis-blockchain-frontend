@@ -10,6 +10,8 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [mostrarPass, setMostrarPass] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null); // <-- NUEVO: Estado para el token
+
+  const [cargando, setCargando] = useState(false);
   
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -32,7 +34,7 @@ const Login = () => {
       setError("❌ Por favor, verifica que no eres un robot.");
       return;
     }
-
+    setCargando(true);
     try {
       const respuesta = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
         email: formData.email,
@@ -47,6 +49,7 @@ const Login = () => {
       navigate('/dashboard');
 
     } catch (error) {
+      setCargando(false);
       console.error(error);
       
       // 👇 MAGIA AQUÍ: Reseteamos el reCAPTCHA visualmente y borramos el token viejo
@@ -118,8 +121,8 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '10px' }}>
-            Entrar al Sistema
+          <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '10px' }} disabled={cargando}>
+            {cargando ? 'Ingresando...' : 'Entrar al Sistema'}
           </button>
         </form>
 
