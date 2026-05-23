@@ -113,7 +113,7 @@ const AuditoriaCard = ({ onVerificar, searchId, documentoBlockchain, errorBusque
         backgroundColor: 'rgba(46,100,213,0.08)',
         borderLeft: '3px solid #3b6fd4',
       }}>
-        <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: '1.5' }}> Asegurate si ya subiste algun documento previamente o si el documento que tienes es el mismo que el registrado en la red. </p>
+        <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: '1.5' }}> Asegúrate de haber subido el documento previamente o verifica que sea el mismo que está registrado en la red. </p>
         <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
           Si el archivo <strong style={{ color: 'var(--text-main)' }}>ya existe</strong> en la red y no lo has subido tú, podría indicar <strong style={{ color: '#e27b3b' }}>falsificación documental</strong>. Reporta al administrador.
         </p>
