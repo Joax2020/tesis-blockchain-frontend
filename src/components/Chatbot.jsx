@@ -82,7 +82,8 @@ const Chatbot = () => {
               <div style={styles.mensajeVacio}>
                 <p style={{ fontSize: '2rem', margin: '0 0 10px 0' }}>🤖</p>
                 <p>¡Hola! Puedo responder preguntas sobre los documentos que subiste.</p>
-                <p style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>Hazme cualquier pregunta sobre los PDFs subidos.</p>
+                <p style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}><strong>Tip:</strong> Menciona el nombre del documento para respuestas más precisas<br />
+                Ej: <em>"En mi contrato de alquiler, ¿Cuál es la fecha de vencimiento?"</em></p>
               </div>
             )}
             
