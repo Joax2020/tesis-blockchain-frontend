@@ -174,7 +174,7 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
 
       <form onSubmit={registrarDocumento}>
         <div className="form-group upload-box" style={{ padding: '15px', border: '2px dashed var(--border-line)', textAlign: 'center', borderRadius: '8px', marginBottom: '15px' }}>
-          <input type="file" id="fileInput" onChange={handleFileUpload} disabled={isProcessing} style={{ width: '100%' }} />
+          <input type="file" id="fileInput" onChange={handleFileUpload} accept=".pdf,.jpg,.jpeg,.png" disabled={isProcessing} style={{ width: '100%' }} />
         </div>
 
         {calculandoHash && <p style={{ color: '#f1c40f', fontSize: '0.9rem' }}>Preparando archivo...</p>}

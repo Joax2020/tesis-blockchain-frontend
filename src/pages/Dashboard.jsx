@@ -39,10 +39,10 @@ const TipsBanner = () => {
   const [visible, setVisible] = useState(true);
 
   const tips = [
-    { icon: '📄', text: 'Prioriza PDFs digitales originales para un OCR preciso.' },
+    { icon: '📄', text: 'Prioriza PDFs digitales originales sobre los escaneados para un Chat mas preciso.' },
     { icon: '⏱️', text: 'Documentos extensos pueden demorar más en procesarse.' },
-    { icon: '🔒', text: 'Cambiar un solo carácter altera por completo la firma Blockchain.' },
-    { icon: '🤖', text: 'Formatos ideales para el asistente RAG: PDFs limpios e imágenes HD.' },
+    { icon: '🔒', text: 'Cambiar un solo carácter altera por completo la firma del documento (El sistema puede detectarlo como un documento diferente al original)' },
+    { icon: '🤖', text: 'Formatos ideales para el asistente inteligente: PDFs limpios e imágenes HD.' },
   ];
 
   useEffect(() => {
