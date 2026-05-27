@@ -26,6 +26,9 @@ const Home = () => {
           <span style={{ fontSize: '1.4rem', fontWeight: 'bold', letterSpacing: '-0.5px' }}>DocuChain</span>
         </div>
         <div style={{ display: 'flex', gap: '15px' }}>
+          <button onClick={() => navigate('/como-funciona')} className="btn-secondary" style={{ padding: '8px 20px', borderRadius: '50px' }}>
+    ¿Cómo funciona?
+  </button>
           <button onClick={() => navigate('/login')} className="btn-secondary" style={{ padding: '8px 20px', borderRadius: '50px' }}>
             Iniciar Sesión
           </button>

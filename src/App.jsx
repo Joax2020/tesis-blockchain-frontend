@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Registro from './pages/Registro';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import ComoFunciona from './pages/ComoFunciona'
 import './App.css';
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/como-funciona" element={<ComoFunciona />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
