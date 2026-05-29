@@ -71,13 +71,10 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/documento`,
-        datosAEnviar,
-        {
-          withCredentials: true,
-          headers: { 'Authorization': `Bearer ${token}` }
-        }
-      );
+  `${import.meta.env.VITE_API_URL}/documento`,
+  datosAEnviar,
+  { withCredentials: true }
+);
 
       if (response.status === 202) {
           iniciarPolling(formData.id);
@@ -93,7 +90,8 @@ const FormularioSubida = ({ usuario, onUploadSuccess }) => {
     } catch (error) {
       setIsProcessing(false);
       setMensajeRegistro('');
-      toast.error('Error al subir. Verifica tu sesión.');
+      const msg = error.response?.data?.error || error.message || 'Error desconocido';
+toast.error(`Error al subir: ${msg}`);
     }
 };
 
